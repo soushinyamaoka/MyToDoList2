@@ -67,8 +67,7 @@ public class MainActivity extends AppCompatActivity
         if (item == null) {
             fragment = TodoFormFragment.newInstance();
         } else {
-            fragment = TodoFormFragment.newInstance(item.getColorLabel(),
-                    item.getValue(), item.getCreatedTime());
+            fragment = TodoFormFragment.newInstance(item.getValue(), item.getCreatedTime());
         }
         if (!mIsTablet) {
             //スマートフォンレイアウトの場合はcontainerに表示

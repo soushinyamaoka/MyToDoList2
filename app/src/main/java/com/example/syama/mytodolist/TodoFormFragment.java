@@ -29,13 +29,9 @@ public class TodoFormFragment extends Fragment {
 
     private static final int MENU_ADD = 1;
 
-    public static final String ARGS_COLORLABEL = "key-colorlabel";
-
     public static final String ARGS_VALUE = "key-value";
 
     public static final String ARGS_CREATEDTIME = "key-createdtime";
-
-    private int mColorLabel = Todo.ColorLabel.NONE;
 
     private long mCreatedTime = 0;
 
@@ -49,10 +45,9 @@ public class TodoFormFragment extends Fragment {
         return new TodoFormFragment();
     }
 
-    public static TodoFormFragment newInstance(int colorLabel, String value, long createdTime) {
+    public static TodoFormFragment newInstance(String value, long createdTime) {
         TodoFormFragment fragment = new TodoFormFragment();
         Bundle args = new Bundle();
-        args.putInt(ARGS_COLORLABEL, colorLabel);
         args.putString(ARGS_VALUE, value);
         args.putLong(ARGS_CREATEDTIME, createdTime);
         fragment.setArguments(args);
@@ -128,7 +123,6 @@ public class TodoFormFragment extends Fragment {
             String value = mEtInput.getText().toString();
             if (!TextUtils.isEmpty(value) && mIsTextEdited) {
                 Intent resultData = new Intent();
-                resultData.putExtra(ARGS_COLORLABEL, mColorLabel);
                 resultData.putExtra(ARGS_VALUE, value);
                 if (mCreatedTime == 0) {
                     //作成時間がない場合は新規データとして作成時間を生成
