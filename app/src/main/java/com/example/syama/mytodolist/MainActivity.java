@@ -69,11 +69,10 @@ public class MainActivity extends AppCompatActivity
         } else {
             fragment = TodoFormFragment.newInstance(item.getValue(), item.getCreatedTime());
         }
-        if (!mIsTablet) {
             //スマートフォンレイアウトの場合はcontainerに表示
             getSupportFragmentManager().beginTransaction().replace(R.id.container,
                     fragment, tag).addToBackStack(tag).commit();
-        }//else{
+        //else{
             //タブレットレイアウトの場合はcontainer2に表示
          //  getSupportFragmentManager().beginTransaction().replace(R.id.container2,
          //          fragment, tag).addToBackStack(tag).commit();

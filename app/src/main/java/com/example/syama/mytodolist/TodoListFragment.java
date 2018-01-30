@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.ContextMenu;
@@ -59,7 +60,9 @@ public class TodoListFragment extends Fragment implements AdapterView.OnItemClic
         registerForContextMenu(listView);
 
         //新規作成Buttonの設定
-        rootView.findViewById(R.id.create_todo).setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.create_todo);
+        fab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 //TODOリストを追加
